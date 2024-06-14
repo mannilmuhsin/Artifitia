@@ -6,6 +6,7 @@ const cors = require('cors');
 
 // Import routes
 const authRoutes = require('./routes/auth');
+const categoryRoutes = require('./routes/category');
 
 const app = express();
 app.use(cors());
@@ -21,6 +22,7 @@ mongoose.connect('mongodb://localhost/productmanagement', {
 
   // Use routes
 app.use('/auth', authRoutes);
+app.use('/categories', categoryRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
