@@ -7,6 +7,8 @@ const cors = require('cors');
 // Import routes
 const authRoutes = require('./routes/auth');
 const categoryRoutes = require('./routes/category');
+const subcategoryRoutes = require('./routes/subcategory');
+const productRoutes = require('./routes/product');
 
 const app = express();
 app.use(cors());
@@ -23,6 +25,8 @@ mongoose.connect('mongodb://localhost/productmanagement', {
   // Use routes
 app.use('/auth', authRoutes);
 app.use('/categories', categoryRoutes);
+app.use('/subcategories', subcategoryRoutes);
+app.use('/products', productRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
